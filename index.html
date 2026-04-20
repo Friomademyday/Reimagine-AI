@@ -5,255 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R.ai - Dream it, Build it</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
+        /* Fixed CSS Syntax */
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-*{
-    
-     
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    
+        body { 
+            background: #050505; 
+            color: white; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
 
-    
-    .flex.overflow-x-auto {
-        
-        padding-top: 20px !important; 
-        padding-bottom: 20px !important;
-        
-        overflow-y: visible !important; 
-        margin-top: -20px; 
-    }
-
-    
-    .anime-card {
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-        z-index: 1;
-    }
-
-    .anime-card:hover {
-        transform: scale(1.1);
-        z-index: 100 !important; 
-        border-color: #ef4444;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
-        outline: 2px solid #ef4444; 
-    }
-
-    
-    section {
-        overflow: visible !important;
-    }
-        
-        body { background: #050505; color: white; scroll-behavior: smooth; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .glass { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(15px); }
-        .anime-card:hover { transform: scale(1.05); border-color: #ef4444; }
-        .fab-child { transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
-        .fab-container:hover .fab-child { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        .glass { background: rgba(10, 10, 10, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        
+        .flex.overflow-x-auto {
+            /* Added padding so the hover scale effect doesn't get clipped by the container */
+            padding-top: 24px !important; 
+            padding-bottom: 24px !important;
+            overflow-y: visible !important; 
+            margin-top: -24px; 
+        }
+
+        .anime-card {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .anime-card:hover {
+            transform: scale(1.08);
+            z-index: 100 !important; 
+            border-color: #ef4444;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 15px rgba(239, 68, 68, 0.3);
+        }
+
+        section {
+            overflow: visible !important;
+        }
+        
+        .fab-child { 
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+            opacity: 0; 
+            transform: translateY(20px) scale(0.5); 
+            pointer-events: none; 
+        }
+        
+        .fab-container:hover .fab-child { 
+            opacity: 1; 
+            transform: translateY(0) scale(1); 
+            pointer-events: auto; 
+        }
     </style>
 </head>
 <body class="pb-24">
 
-    <header class="sticky top-0 z-40 glass border-b border-white/10 p-4">
+    <div id="sidePanelBackdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
+
+    <div id="sidePanel" class="fixed top-0 right-0 h-full w-72 bg-zinc-950/95 glass border-l border-white/10 z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
+        <div class="p-6 border-b border-white/10 flex justify-between items-center">
+            <h2 class="text-lg font-black tracking-widest text-white">M E N U</h2>
+            <button onclick="toggleMenu()" class="text-gray-400 hover:text-red-500 transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/5">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+        <div class="p-4 flex-1 flex flex-col gap-2 overflow-y-auto">
+            <button class="flex items-center gap-4 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-white/5 transition-all text-left w-full">
+                <i class="fa-solid fa-user w-5 text-center"></i>
+                <span class="font-medium text-sm">Profile</span>
+            </button>
+            <button class="flex items-center gap-4 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-white/5 transition-all text-left w-full">
+                <i class="fa-solid fa-bookmark w-5 text-center"></i>
+                <span class="font-medium text-sm">Saved Scenarios</span>
+            </button>
+            <button class="flex items-center gap-4 text-gray-300 hover:text-white p-3 rounded-lg hover:bg-white/5 transition-all text-left w-full">
+                <i class="fa-solid fa-gear w-5 text-center"></i>
+                <span class="font-medium text-sm">Settings</span>
+            </button>
+        </div>
+        <div class="p-6 border-t border-white/10">
+            <p class="text-[10px] text-gray-500 text-center uppercase tracking-widest">Version 1.0.0</p>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-30 glass border-b border-white/10 p-4 flex justify-between items-center">
+        <div class="w-8"></div> 
+        
         <h1 class="text-xl font-black tracking-tighter text-center">
             R E I M A G I N E AI <span class="text-red-500"> (R.ai) </span>
             <div class="text-[10px] font-light text-gray-400 uppercase tracking-[0.2em]">Dream it, Build it</div>
         </h1>
+
+        <button onclick="toggleMenu()" class="text-gray-300 hover:text-white transition-colors w-8 h-8 flex items-center justify-end">
+            <i class="fa-solid fa-bars text-xl"></i>
+        </button>
     </header>
 
-    <main class="mt-6 space-y-10">
-
-
-        <section>
-    <h2 class="px-4 text-lg font-bold mb-3 flex items-center gap-2">
-        <i class="fa-solid fa-fire text-orange-500"></i> Anime Verses: Popular
-    </h2>
-    <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
-        
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('One Piece')">
-            <img src="anime/onepeak.jpg" alt="One Piece" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">One Piece</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Embark on a grand voyage across the seas to discover the ultimate treasure.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Naruto')">
-            <img src="anime/naruto.jpg" alt="Naruto" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Naruto</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Witness a young ninja’s journey from social outcast to legendary hero.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dragon Ball Z')">
-            <img src="anime/dbz.jpg" alt="DBZ" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Dragon Ball Z</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Protect the Earth from cosmic threats with high-octane martial arts and energy blasts.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Attack on Titan')">
-            <img src="anime/aot.jpg" alt="AOT" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Attack on Titan</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Fight for survival in a world where humanity is preyed upon by giant monsters.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Fullmetal Alchemist')">
-            <img src="anime/fmab.jpg" alt="FMA" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Fullmetal Alchemist</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Experience a deep tale of brotherhood and the steep price of forbidden science.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Demon Slayer')">
-            <img src="anime/ds.jpg" alt="Demon Slayer" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Demon Slayer</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Follow a kind-hearted boy on a mission to avenge his family and save his sister.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Jujutsu Kaisen')">
-            <img src="anime/jjk.jpg" alt="JJK" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Jujutsu Kaisen</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Enter a dark world where sorcerers battle cursed spirits born from human fear.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Death Note')">
-            <img src="anime/deathnote.jpg" alt="Death Note" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Death Note</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Explore the thin line between justice and evil when a teenager gains the power of life and death.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Hunter x Hunter')">
-            <img src="anime/hxh.jpg" alt="HxH" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Hunter x Hunter</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Join a young boy as he enters a dangerous competition to find his missing father.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('My Hero Academia')">
-            <img src="anime/mha.jpg" alt="MHA" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">My Hero Academia</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Discover what it truly means to be a hero in a society where everyone has superpowers.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Bleach')">
-            <img src="anime/bleach.jpg" alt="Bleach" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Bleach</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Stand between the living and the dead as a high schooler becomes a soul-reaping warrior.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Spy x Family')">
-            <img src="anime/spyxfamily.jpg" alt="Spy x Family" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Spy x Family</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Watch a fake family of spies, assassins, and telepaths try to live a normal life.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Chainsaw Man')">
-            <img src="anime/cm.jpg" alt="CSM" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Chainsaw Man</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Survive the gritty underworld where a man merged with a devil hunts his own kind.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Frieren')">
-            <img src="anime/freiren.jpg" alt="Frieren" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Frieren</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Reflect on time and mortality through the eyes of an immortal elf after the quest is over.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Oshi no Ko')">
-            <img src="anime/oshinoko.jpg" alt="Oshi no Ko" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Oshi no Ko</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Peer behind the glittering curtain of the entertainment industry to uncover a dark mystery.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Solo Leveling')">
-            <img src="anime/sl.jpeg" alt="Solo Leveling" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Solo Leveling</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Cheer for the weakest warrior as he discovers a system that allows him to level up without limits.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('JoJo')">
-            <img src="anime/jba.jpg" alt="JoJo" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">JoJo's Bizarre Adventure</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Experience the stylish and strange generational battles of the eccentric Joestar bloodline.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Vinland Saga')">
-            <img src="anime/vinlandsaga.jpg" alt="Vinland Saga" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Vinland Saga</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Traverse the brutal Viking era in a gripping story of revenge, war, and eventual peace.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Cyberpunk')">
-            <img src="anime/cper.jpg" alt="Cyberpunk" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Cyberpunk: Edgerunners</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Lose yourself in a neon-soaked dystopia where technology comes at a heavy human cost.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dandadan')">
-            <img src="anime/ddd.jpg" alt="Dandadan" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Dandadan</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Buckle up for a chaotic mix of ghosts, aliens, and high school romance.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('COTE')">
-            <img src="anime/cote.jpg" alt="COTE" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Classroom of the Elite</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Navigate a high-stakes meritocracy where intellect is the only weapon that matters.</p>
-            </div>
-        </div>
-
-    </div>
-    </section>
+    <main class="mt-6 space-y-12">
 
         <section>
-            <h2 class="px-4 text-lg font-bold mb-3 flex items-center gap-2">
+            <h2 class="px-4 text-lg font-bold mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-fire text-orange-500"></i> Anime Verses: Popular
+            </h2>
+            <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
+                
+                <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative cursor-pointer" onclick="startChat('One Piece')">
+                    <img src="anime/onepeak.jpg" alt="One Piece" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
+                        <p class="text-sm font-bold">One Piece</p>
+                        <p class="text-[10px] text-gray-400 leading-tight mt-1">Embark on a grand voyage across the seas to discover the ultimate treasure.</p>
+                    </div>
+                </div>
+
+                <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative cursor-pointer" onclick="startChat('Naruto')">
+                    <img src="anime/naruto.jpg" alt="Naruto" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
+                        <p class="text-sm font-bold">Naruto</p>
+                        <p class="text-[10px] text-gray-400 leading-tight mt-1">Witness a young ninja’s journey from social outcast to legendary hero.</p>
+                    </div>
+                </div>
+
+                <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative cursor-pointer" onclick="startChat('Dragon Ball Z')">
+                    <img src="anime/dbz.jpg" alt="DBZ" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
+                        <p class="text-sm font-bold">Dragon Ball Z</p>
+                        <p class="text-[10px] text-gray-400 leading-tight mt-1">Protect the Earth from cosmic threats with high-octane martial arts and energy blasts.</p>
+                    </div>
+                </div>
+
+                <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative cursor-pointer" onclick="startChat('Attack on Titan')">
+                    <img src="anime/aot.jpg" alt="AOT" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
+                        <p class="text-sm font-bold">Attack on Titan</p>
+                        <p class="text-[10px] text-gray-400 leading-tight mt-1">Fight for survival in a world where humanity is preyed upon by giant monsters.</p>
+                    </div>
+                </div>
+
+                <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative cursor-pointer" onclick="startChat('Fullmetal Alchemist')">
+                    <img src="anime/fmab.jpg" alt="FMA" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
+                        <p class="text-sm font-bold">Fullmetal Alchemist</p>
+                        <p class="text-[10px] text-gray-400 leading-tight mt-1">Experience a deep tale of brotherhood and the steep price of forbidden science.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2 class="px-4 text-lg font-bold mb-1 flex items-center gap-2">
                 <i class="fa-solid fa-mask text-purple-500"></i> Personalities
             </h2>
             <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
-                <div class="snap-center min-w-[200px] h-32 bg-zinc-900 rounded-xl border border-white/5 p-4 flex flex-col justify-between" onclick="startChat('Yandere')">
-                    <span class="text-xs bg-red-500/20 text-red-500 w-fit px-2 py-0.5 rounded">Yandere</span>
-                    <p class="text-sm font-bold">The Obsessive Stalker</p>
-                    <p class="text-[10px] text-gray-400">She'll never let you go...</p>
+                <div class="snap-center min-w-[200px] h-32 bg-zinc-900 rounded-xl border border-white/5 p-4 flex flex-col justify-between anime-card cursor-pointer" onclick="startChat('Yandere')">
+                    <span class="text-xs font-bold bg-red-500/10 text-red-500 w-fit px-2.5 py-1 rounded-md border border-red-500/20">Yandere</span>
+                    <div>
+                        <p class="text-sm font-bold">The Obsessive Stalker</p>
+                        <p class="text-[10px] text-gray-400 mt-1">She'll never let you go...</p>
+                    </div>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section>
@@ -261,32 +177,34 @@
                 <i class="fa-solid fa-earth-americas text-blue-500"></i> World Scenarios
             </h2>
             <div class="grid grid-cols-2 gap-4 px-4">
-                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden" onclick="startChat('Isekai')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                    <p class="absolute bottom-3 left-3 text-sm font-bold">Isekai: Reborn as a Sword</p>
+                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden group cursor-pointer anime-card" onclick="startChat('Isekai')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+                    <img src="anime/isekai.jpg" alt="Isekai" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-110">
+                    <p class="absolute bottom-3 left-3 text-sm font-bold z-20">Isekai: Reborn as a Sword</p>
                 </div>
-                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden" onclick="startChat('Cyberpunk')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                    <p class="absolute bottom-3 left-3 text-sm font-bold">Cyberpunk 2099</p>
+                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden group cursor-pointer anime-card" onclick="startChat('Cyberpunk')">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+                    <img src="anime/cper.jpg" alt="Cyberpunk" onerror="this.style.display='none'" class="absolute inset-0 w-full h-full object-cover opacity-40 transition-transform duration-500 group-hover:scale-110">
+                    <p class="absolute bottom-3 left-3 text-sm font-bold z-20">Cyberpunk 2099</p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <div class="fixed bottom-6 right-6 flex flex-col-reverse items-center gap-4 fab-container">
-        <button class="w-14 h-14 bg-red-600 rounded-full shadow-lg shadow-red-600/40 flex items-center justify-center text-2xl z-50">
+    <div class="fixed bottom-6 right-6 flex flex-col-reverse items-center gap-4 fab-container z-20">
+        <button class="w-14 h-14 bg-red-600 rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center text-2xl transition-transform hover:scale-110">
             <i class="fa-solid fa-feather-pointed text-white"></i>
         </button>
 
         <div class="flex flex-col gap-3 pb-2">
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Build">
+            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-zinc-700 hover:text-red-400 transition-colors" title="Build">
                 <i class="fa-solid fa-hammer text-sm"></i>
             </button>
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Create World">
+            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-zinc-700 hover:text-blue-400 transition-colors" title="Create World">
                 <i class="fa-solid fa-globe text-sm"></i>
             </button>
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Create Character">
+            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10 hover:bg-zinc-700 hover:text-purple-400 transition-colors" title="Create Character">
                 <i class="fa-solid fa-user-plus text-sm"></i>
             </button>
         </div>
@@ -295,9 +213,38 @@
     <script>
         function startChat(type) {
             alert("Starting " + type + " roleplay...");
+        }
+
+        // Logic for sliding side panel menu
+        function toggleMenu() {
+            const panel = document.getElementById('sidePanel');
+            const backdrop = document.getElementById('sidePanelBackdrop');
             
+            if (panel.classList.contains('translate-x-full')) {
+                // Open menu
+                backdrop.classList.remove('hidden');
+                // Small delay to allow display block to apply before transitioning opacity
+                setTimeout(() => {
+                    backdrop.classList.remove('opacity-0');
+                    panel.classList.remove('translate-x-full');
+                }, 10);
+                
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Close menu
+                panel.classList.add('translate-x-full');
+                backdrop.classList.add('opacity-0');
+                
+                // Wait for transition to finish before hiding
+                setTimeout(() => {
+                    backdrop.classList.add('hidden');
+                    // Restore background scrolling
+                    document.body.style.overflow = '';
+                }, 300);
+            }
         }
     </script>
 
 </body>
-      </html>
+                        </html>
