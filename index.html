@@ -8,7 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
 
-
+{
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 .anime-card {
     transition: transform 0.3s ease, z-index 0s;
     z-index: 1;
@@ -53,7 +57,7 @@ section {
     </h2>
     <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
         
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('One Piece')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('One Piece')">
             <img src="anime/onepeak.jpg" alt="One Piece" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">One Piece</p>
@@ -61,7 +65,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Naruto')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Naruto')">
             <img src="anime/naruto.jpg" alt="Naruto" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Naruto</p>
@@ -69,7 +73,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dragon Ball Z')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dragon Ball Z')">
             <img src="anime/dbz.jpg" alt="DBZ" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Dragon Ball Z</p>
@@ -77,7 +81,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Attack on Titan')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Attack on Titan')">
             <img src="anime/aot.jpg" alt="AOT" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Attack on Titan</p>
@@ -85,7 +89,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Fullmetal Alchemist')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Fullmetal Alchemist')">
             <img src="anime/fmab.jpg" alt="FMA" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Fullmetal Alchemist</p>
@@ -93,7 +97,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Demon Slayer')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Demon Slayer')">
             <img src="anime/ds.jpg" alt="Demon Slayer" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Demon Slayer</p>
@@ -101,7 +105,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Jujutsu Kaisen')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Jujutsu Kaisen')">
             <img src="anime/jjk.jpg" alt="JJK" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Jujutsu Kaisen</p>
@@ -109,7 +113,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Death Note')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Death Note')">
             <img src="anime/deathnote.jpg" alt="Death Note" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Death Note</p>
@@ -117,7 +121,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Hunter x Hunter')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Hunter x Hunter')">
             <img src="anime/hxh.jpg" alt="HxH" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Hunter x Hunter</p>
@@ -125,7 +129,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('My Hero Academia')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('My Hero Academia')">
             <img src="anime/mha.jpg" alt="MHA" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">My Hero Academia</p>
@@ -133,7 +137,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Bleach')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Bleach')">
             <img src="anime/bleach.jpg" alt="Bleach" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Bleach</p>
@@ -141,7 +145,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Spy x Family')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Spy x Family')">
             <img src="anime/spyxfamily.jpg" alt="Spy x Family" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Spy x Family</p>
@@ -149,7 +153,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Chainsaw Man')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Chainsaw Man')">
             <img src="anime/cm.jpg" alt="CSM" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Chainsaw Man</p>
@@ -157,7 +161,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Frieren')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Frieren')">
             <img src="anime/freiren.jpg" alt="Frieren" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Frieren</p>
@@ -165,7 +169,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Oshi no Ko')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Oshi no Ko')">
             <img src="anime/oshinoko.jpg" alt="Oshi no Ko" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Oshi no Ko</p>
@@ -173,7 +177,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Solo Leveling')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Solo Leveling')">
             <img src="anime/sl.jpeg" alt="Solo Leveling" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Solo Leveling</p>
@@ -181,7 +185,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('JoJo')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('JoJo')">
             <img src="anime/jba.jpg" alt="JoJo" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">JoJo's Bizarre Adventure</p>
@@ -189,7 +193,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Vinland Saga')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Vinland Saga')">
             <img src="anime/vinlandsaga.jpg" alt="Vinland Saga" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Vinland Saga</p>
@@ -197,7 +201,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Cyberpunk')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Cyberpunk')">
             <img src="anime/cper.jpg" alt="Cyberpunk" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Cyberpunk: Edgerunners</p>
@@ -205,7 +209,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dandadan')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dandadan')">
             <img src="anime/ddd.jpg" alt="Dandadan" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Dandadan</p>
@@ -213,7 +217,7 @@ section {
             </div>
         </div>
 
-        <div class="snap-center min-w-[200px] h-[300px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('COTE')">
+        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('COTE')">
             <img src="anime/cote.jpg" alt="COTE" class="absolute inset-0 w-full h-full object-cover opacity-34">
             <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
                 <p class="text-sm font-bold">Classroom of the Elite</p>
