@@ -7,6 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+
+
+.anime-card {
+    transition: transform 0.3s ease, z-index 0s;
+    z-index: 1;
+}
+
+.anime-card:hover {
+    transform: scale(1.05);
+    z-index: 50; 
+    border-color: #ef4444;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+
+section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+        
         body { background: #050505; color: white; scroll-behavior: smooth; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .glass { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(15px); }
