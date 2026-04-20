@@ -2,291 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R.ai - Dream it, Build it</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ReImagine AI (R.ai)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        * {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+            box-sizing: border-box;
+            user-select: none;
+        }
 
-*{
-    
-     
-        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    
+        body {
+            background: radial-gradient(circle at top right, #1a1a3a, #0d0d15);
+            background-attachment: fixed;
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
 
-    
-    .flex.overflow-x-auto {
+        .premium-border {
+            border: 1px solid rgba(199, 115, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .premium-border:hover {
+            border-color: rgba(199, 115, 255, 0.8);
+            box-shadow: 0 0 20px rgba(160, 100, 255, 0.3);
+            transform: translateY(-4px);
+            z-index: 50;
+        }
+
+        .no-scrollbar::-webkit-scrollbar { 
+            display: none; 
+        }
         
-        padding-top: 20px !important; 
-        padding-bottom: 20px !important;
-        
-        overflow-y: visible !important; 
-        margin-top: -20px; 
-    }
+        .no-scrollbar { 
+            -ms-overflow-style: none; 
+            scrollbar-width: none; 
+        }
 
-    
-    .anime-card {
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        position: relative;
-        z-index: 1;
-    }
+        .fab-main {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, #c773ff, #6a5aff);
+        }
 
-    .anime-card:hover {
-        transform: scale(1.1);
-        z-index: 100 !important; 
-        border-color: #ef4444;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.9);
-        outline: 2px solid #ef4444; 
-    }
+        .fab-menu-btn {
+            background: #1a1a1a;
+            color: #ffffff;
+        }
 
-    
-    section {
-        overflow: visible !important;
-    }
-        
-        body { background: #050505; color: white; scroll-behavior: smooth; }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .glass { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(15px); }
-        .anime-card:hover { transform: scale(1.05); border-color: #ef4444; }
-        .fab-child { transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); opacity: 0; transform: translateY(20px) scale(0); pointer-events: none; }
-        .fab-container:hover .fab-child { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+        @media (prefers-color-scheme: light) {
+            body {
+                background: #ffffff;
+                color: #111111;
+            }
+            .premium-border {
+                border: 1px solid rgba(106, 90, 255, 0.2);
+                background: #f9f9f9;
+            }
+            .premium-border:hover {
+                border-color: #6a5aff;
+                box-shadow: 0 10px 25px rgba(106, 90, 255, 0.2);
+            }
+            .fab-menu-btn {
+                background: #ffffff;
+                color: #111111;
+            }
+            .theme-text {
+                color: #111111;
+            }
+            .theme-subtext {
+                color: #666666;
+            }
+        }
     </style>
 </head>
-<body class="pb-24">
+<body>
 
-    <header class="sticky top-0 z-40 glass border-b border-white/10 p-4">
-        <h1 class="text-xl font-black tracking-tighter text-center">
-            R E I M A G I N E AI <span class="text-red-500"> (R.ai) </span>
-            <div class="text-[10px] font-light text-gray-400 uppercase tracking-[0.2em]">Dream it, Build it</div>
-        </h1>
+    <header class="flex justify-between items-center px-6 py-8">
+        <div>
+            <h1 class="text-2xl font-black tracking-tighter italic theme-text">REIMAGINE AI</h1>
+            <p class="text-[10px] uppercase tracking-[0.3em] font-bold theme-subtext">Dream it, Build it</p>
+        </div>
     </header>
 
-    <main class="mt-6 space-y-10">
-
-
-        <section>
-    <h2 class="px-4 text-lg font-bold mb-3 flex items-center gap-2">
-        <i class="fa-solid fa-fire text-orange-500"></i> Anime Verses: Popular
-    </h2>
-    <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
-        
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('One Piece')">
-            <img src="anime/onepeak.jpg" alt="One Piece" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">One Piece</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Embark on a grand voyage across the seas to discover the ultimate treasure.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Naruto')">
-            <img src="anime/naruto.jpg" alt="Naruto" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Naruto</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Witness a young ninja’s journey from social outcast to legendary hero.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dragon Ball Z')">
-            <img src="anime/dbz.jpg" alt="DBZ" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Dragon Ball Z</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Protect the Earth from cosmic threats with high-octane martial arts and energy blasts.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Attack on Titan')">
-            <img src="anime/aot.jpg" alt="AOT" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Attack on Titan</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Fight for survival in a world where humanity is preyed upon by giant monsters.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Fullmetal Alchemist')">
-            <img src="anime/fmab.jpg" alt="FMA" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Fullmetal Alchemist</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Experience a deep tale of brotherhood and the steep price of forbidden science.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Demon Slayer')">
-            <img src="anime/ds.jpg" alt="Demon Slayer" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Demon Slayer</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Follow a kind-hearted boy on a mission to avenge his family and save his sister.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Jujutsu Kaisen')">
-            <img src="anime/jjk.jpg" alt="JJK" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Jujutsu Kaisen</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Enter a dark world where sorcerers battle cursed spirits born from human fear.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Death Note')">
-            <img src="anime/deathnote.jpg" alt="Death Note" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Death Note</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Explore the thin line between justice and evil when a teenager gains the power of life and death.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Hunter x Hunter')">
-            <img src="anime/hxh.jpg" alt="HxH" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Hunter x Hunter</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Join a young boy as he enters a dangerous competition to find his missing father.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('My Hero Academia')">
-            <img src="anime/mha.jpg" alt="MHA" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">My Hero Academia</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Discover what it truly means to be a hero in a society where everyone has superpowers.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Bleach')">
-            <img src="anime/bleach.jpg" alt="Bleach" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Bleach</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Stand between the living and the dead as a high schooler becomes a soul-reaping warrior.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Spy x Family')">
-            <img src="anime/spyxfamily.jpg" alt="Spy x Family" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Spy x Family</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Watch a fake family of spies, assassins, and telepaths try to live a normal life.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Chainsaw Man')">
-            <img src="anime/cm.jpg" alt="CSM" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Chainsaw Man</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Survive the gritty underworld where a man merged with a devil hunts his own kind.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Frieren')">
-            <img src="anime/freiren.jpg" alt="Frieren" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Frieren</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Reflect on time and mortality through the eyes of an immortal elf after the quest is over.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Oshi no Ko')">
-            <img src="anime/oshinoko.jpg" alt="Oshi no Ko" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Oshi no Ko</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Peer behind the glittering curtain of the entertainment industry to uncover a dark mystery.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Solo Leveling')">
-            <img src="anime/sl.jpeg" alt="Solo Leveling" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Solo Leveling</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Cheer for the weakest warrior as he discovers a system that allows him to level up without limits.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('JoJo')">
-            <img src="anime/jba.jpg" alt="JoJo" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">JoJo's Bizarre Adventure</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Experience the stylish and strange generational battles of the eccentric Joestar bloodline.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Vinland Saga')">
-            <img src="anime/vinlandsaga.jpg" alt="Vinland Saga" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Vinland Saga</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Traverse the brutal Viking era in a gripping story of revenge, war, and eventual peace.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Cyberpunk')">
-            <img src="anime/cper.jpg" alt="Cyberpunk" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Cyberpunk: Edgerunners</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Lose yourself in a neon-soaked dystopia where technology comes at a heavy human cost.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('Dandadan')">
-            <img src="anime/ddd.jpg" alt="Dandadan" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Dandadan</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Buckle up for a chaotic mix of ghosts, aliens, and high school romance.</p>
-            </div>
-        </div>
-
-        <div class="snap-center min-w-[200px] h-[270px] bg-zinc-900 rounded-xl border border-white/5 anime-card transition-all overflow-hidden relative" onclick="startChat('COTE')">
-            <img src="anime/cote.jpg" alt="COTE" class="absolute inset-0 w-full h-full object-cover opacity-34">
-            <div class="p-4 h-full flex flex-col justify-end bg-gradient-to-t from-black via-black/80 to-transparent relative z-10">
-                <p class="text-sm font-bold">Classroom of the Elite</p>
-                <p class="text-[10px] text-gray-400 leading-tight">Navigate a high-stakes meritocracy where intellect is the only weapon that matters.</p>
-            </div>
-        </div>
-
+    <div id="app" class="space-y-12 pb-32">
     </div>
-    </section>
 
-        <section>
-            <h2 class="px-4 text-lg font-bold mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-mask text-purple-500"></i> Personalities
-            </h2>
-            <div class="flex overflow-x-auto gap-4 px-4 hide-scrollbar snap-x">
-                <div class="snap-center min-w-[200px] h-32 bg-zinc-900 rounded-xl border border-white/5 p-4 flex flex-col justify-between" onclick="startChat('Yandere')">
-                    <span class="text-xs bg-red-500/20 text-red-500 w-fit px-2 py-0.5 rounded">Yandere</span>
-                    <p class="text-sm font-bold">The Obsessive Stalker</p>
-                    <p class="text-[10px] text-gray-400">She'll never let you go...</p>
-                </div>
-                </div>
-        </section>
-
-        <section>
-            <h2 class="px-4 text-lg font-bold mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-earth-americas text-blue-500"></i> World Scenarios
-            </h2>
-            <div class="grid grid-cols-2 gap-4 px-4">
-                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden" onclick="startChat('Isekai')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                    <p class="absolute bottom-3 left-3 text-sm font-bold">Isekai: Reborn as a Sword</p>
-                </div>
-                <div class="h-40 bg-zinc-900 rounded-xl border border-white/5 p-4 relative overflow-hidden" onclick="startChat('Cyberpunk')">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-                    <p class="absolute bottom-3 left-3 text-sm font-bold">Cyberpunk 2099</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <div class="fixed bottom-6 right-6 flex flex-col-reverse items-center gap-4 fab-container">
-        <button class="w-14 h-14 bg-red-600 rounded-full shadow-lg shadow-red-600/40 flex items-center justify-center text-2xl z-50">
-            <i class="fa-solid fa-feather-pointed text-white"></i>
+    <div id="fab-container" class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
+        <div id="fab-menu" class="flex flex-col gap-3 hidden transition-all scale-90 opacity-0 mb-4 items-end">
+            <button class="fab-menu-btn premium-border px-6 py-3 rounded-full text-sm font-bold shadow-2xl">Create Character</button>
+            <button class="fab-menu-btn premium-border px-6 py-3 rounded-full text-sm font-bold shadow-2xl">Create World</button>
+            <button class="fab-menu-btn premium-border px-6 py-3 rounded-full text-sm font-bold shadow-2xl">Build</button>
+        </div>
+        <button onclick="toggleFab()" class="fab-main w-16 h-16 rounded-full flex items-center justify-center text-white shadow-2xl active:scale-90 transition-transform">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
         </button>
+    </div>
 
-        <div class="flex flex-col gap-3 pb-2">
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Build">
-                <i class="fa-solid fa-hammer text-sm"></i>
-            </button>
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Create World">
-                <i class="fa-solid fa-globe text-sm"></i>
-            </button>
-            <button class="fab-child w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center shadow-lg border border-white/10" title="Create Character">
-                <i class="fa-solid fa-user-plus text-sm"></i>
-            </button>
-  
+    <script>
+        const animeVerses = [
+            { id: 'onepeak', title: 'One Piece', desc: 'Embark on a grand voyage across the seas to discover the ultimate treasure.', img: 'anime/onepeak.jpg' },
+            { id: 'naruto', title: 'Naruto', desc: 'Witness a young ninja’s journey from social outcast to legendary hero.', img: 'anime/naruto.jpg' },
+            { id: 'dbz', title: 'Dragon Ball Z', desc: 'Protect the Earth from cosmic threats with high-octane martial arts and energy blasts.', img: 'anime/dbz.jpg' },
+            { id: 'aot', title: 'Attack on Titan', desc: 'Fight for survival in a world where humanity is preyed upon by giant monsters.', img: 'anime/aot.jpg' },
+            { id: 'fmab', title: 'Fullmetal Alchemist: Brotherhood', desc: 'Experience a deep tale of brotherhood and the steep price of forbidden science.', img: 'anime/fmab.jpg' },
+            { id: 'ds', title: 'Demon Slayer', desc: 'Follow a kind-hearted boy on a mission to avenge his family and save his sister.', img: 'anime/ds.jpg' },
+            { id: 'jjk', title: 'Jujutsu Kaisen', desc: 'Enter a dark world where sorcerers battle cursed spirits born from human fear.', img: 'anime/jjk.jpg' },
+            { id: 'deathnote', title: 'Death Note', desc: 'Explore the thin line between justice and evil when a teenager gains the power of life and death.', img: 'anime/deathnote.jpg' },
+            { id: 'hxh', title: 'Hunter x Hunter', desc: 'Join a young boy as he enters a dangerous competition to find his missing father.', img: 'anime/hxh.jpg' },
+            { id: 'mha', title: 'My Hero Academia', desc: 'Discover what it truly means to be a hero in a society where everyone has superpowers.', img: 'anime/mha.jpg' },
+            { id: 'bleach', title: 'Bleach', desc: 'Stand between the living and the dead as a high schooler becomes a soul-reaping warrior.', img: 'anime/bleach.jpg' },
+            { id: 'spyxfamily', title: 'Spy x Family', desc: 'Watch a fake family of spies, assassins, and telepaths try to live a normal life.', img: 'anime/spyxfamily.jpg' },
+            { id: 'cm', title: 'Chainsaw Man', desc: 'Survive the gritty underworld where a man merged with a devil hunts his own kind.', img: 'anime/cm.jpg' },
+            { id: 'freiren', title: 'Frieren: Beyond Journey\'s End', desc: 'Reflect on time and mortality through the eyes of an immortal elf after the quest is over.', img: 'anime/freiren.jpg' },
+            { id: 'oshinoko', title: 'Oshi no Ko', desc: 'Peer behind the glittering curtain of the entertainment industry to uncover a dark mystery.', img: 'anime/oshinoko.jpg' },
+            { id: 'sl', title: 'Solo Leveling', desc: 'Cheer for the weakest warrior as he discovers a system that allows him to level up without limits.', img: 'anime/sl.jpg' },
+            { id: 'jba', title: 'JoJo’s Bizarre Adventure', desc: 'Experience the stylish and strange generational battles of the eccentric Joestar bloodline.', img: 'anime/jba.jpg' },
+            { id: 'vinlandsaga', title: 'Vinland Saga', desc: 'Traverse the brutal Viking era in a gripping story of revenge, war, and eventual peace.', img: 'anime/vinlandsaga.jpg' },
+            { id: 'cper', title: 'Cyberpunk: Edgerunners', desc: 'Lose yourself in a neon-soaked dystopia where technology comes at a heavy human cost.', img: 'anime/cper.jpg' },
+            { id: 'ddd', title: 'Dandadan', desc: 'Buckle up for a chaotic mix of ghosts, aliens, and high school romance.', img: 'anime/ddd.jpg' },
+            { id: 'cote', title: 'Classroom of the Elite', desc: 'Navigate a high-stakes meritocracy where intellect is the only weapon that matters.', img: 'anime/cote.jpg' }
+        ];
+
+        function renderApp() {
+            const app = document.getElementById('app');
+            
+            let animeHtml = `
+                <section class="py-4">
+                    <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Anime Universe</h2>
+                    <div class="flex overflow-x-auto gap-6 px-6 pb-8 pt-4 no-scrollbar -mt-4">
+                        ${animeVerses.map(anime => `
+                            <div class="min-w-[280px] h-[380px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${anime.title}')">
+                                <img src="${anime.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/50 to-transparent"></div>
+                                <div class="absolute bottom-0 p-8 z-10 w-full">
+                                    <h3 class="text-xl font-bold mb-2 text-white">${anime.title}</h3>
+                                    <p class="text-sm text-gray-300 leading-relaxed">${anime.desc}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </section>
+            `;
+
+            app.innerHTML = animeHtml;
+        }
+
+        function toggleFab() {
+            const menu = document.getElementById('fab-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                setTimeout(() => {
+                    menu.classList.remove('opacity-0', 'scale-90');
+                }, 10);
+            } else {
+                menu.classList.add('opacity-0', 'scale-90');
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        renderApp();
+    </script>
+</body>
+</html>
