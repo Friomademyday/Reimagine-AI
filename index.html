@@ -28,10 +28,19 @@
         }
 
         .premium-border:hover {
-            border-color: rgba(199, 115, 255, 0.8);
-            box-shadow: 0 0 20px rgba(160, 100, 255, 0.3);
-            transform: translateY(-4px);
-            z-index: 50;
+    transform: scale(1.05); 
+    z-index: 100 !important;
+    border-color: rgba(199, 115, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        section {
+    overflow: visible !important;
+        }
+
+        .flex.overflow-x-auto {
+    overflow-y: visible !important;
+    overflow-x: scroll !important;
         }
 
         .no-scrollbar::-webkit-scrollbar { 
@@ -192,7 +201,7 @@
             html += `
                 <section class="py-0">
                     <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Anime Universe: Popular</h2>
-                    <div class="flex overflow-x-auto gap-6 px-6 pb-4 pt-0 no-scrollbar">
+                    <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
                         ${animeVerses.map(anime => `
                             <div class="min-w-[200px] h-[270px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${anime.title}')">
                                 <img src="${anime.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
@@ -211,7 +220,7 @@
             html += `
         <section class="py-0">
             <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Trending Personalities</h2>
-            <div class="flex overflow-x-auto gap-6 px-6 pb-4 pt-0 no-scrollbar">
+            <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
                 ${characterCards.map(char => `
                     <div class="min-w-[220px] h-[300px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer">
                         <img src="${char.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
