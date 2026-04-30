@@ -224,11 +224,11 @@
             ${characterCards.map(char => `
                 <div class="min-w-[230px] h-[120px] bg-[#1a1a1a]/60 premium-border rounded-[24px] flex items-center p-3 group cursor-pointer active:scale-95 transition-all">
                     
-                    <div class="w-[76px] h-[76px] rounded-[20px] overflow-hidden flex-shrink-0">
+                    <div class="w-[30%] h-[76px] rounded-[20px] overflow-hidden flex-shrink-0">
                         <img src="${char.img}" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
                     </div>
 
-                    <div class="ml-4 flex flex-col justify-center overflow-hidden">
+                    <div class="flex-1 ml-4 flex flex-col justify-center overflow-hidden">
                         <div class="flex items-center gap-2 mb-1">
                             <span class="text-[7px] font-black tracking-widest bg-purple-600/30 text-purple-400 px-1.5 py-0.5 rounded uppercase border border-purple-500/20">${char.cat}</span>
                             <h3 class="text-[10px] font-black uppercase tracking-[0.15em] text-white truncate">${char.title}</h3>
