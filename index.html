@@ -90,10 +90,22 @@
 </head>
 <body>
 
-    <header class="flex justify-between items-center px-6 py-8">
-        <div>
-            <h1 class="text-2xl font-black tracking-tighter italic theme-text">REIMAGINE AI</h1>
-            <p class="text-[10px] uppercase tracking-[0.3em] font-bold theme-subtext">Dream it, Build it</p>
+
+    <header class="flex justify-between items-center px-6 py-6 border-b border-white/5 bg-[#0d0d15]/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="flex items-center gap-4">
+            
+            <button onclick="toggleSidebar(true)" class="p-2 -ml-2 hover:bg-white/10 rounded-full transition-colors">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div>
+                <h1 class="text-lg font-black tracking-tighter italic theme-text">REIMAGINE</h1>
+                <p class="text-[8px] uppercase tracking-[0.2em] font-bold theme-subtext opacity-60">Dream it, Build it</p>
+            </div>
         </div>
     </header>
 
