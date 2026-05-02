@@ -43,6 +43,42 @@
     overflow-x: scroll !important;
         }
 
+
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: #0d0d15;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 60;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    padding: 1.5rem;
+}
+
+
+#sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.overlay-visible {
+    display: block !important;
+    opacity: 1 !important;
+}
+        
         .no-scrollbar::-webkit-scrollbar { 
             display: none; 
         }
