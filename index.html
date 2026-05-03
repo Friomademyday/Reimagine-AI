@@ -259,6 +259,27 @@
             { id: 'cote', title: 'Classroom of the Elite', desc: 'Navigate a high-stakes meritocracy where intellect is the only weapon that matters.', img: 'anime/cote.jpg' }
         ];
 
+
+        const worldScenarios = [
+    { id: 'v1', tag: 'Isekai', title: 'The Betrayed Hero', desc: 'Your party abandoned you in the S-Rank dungeon to die. Little did they know, you just unlocked the "Devour" skill.', img: 'world/isekai_1.jpg' },
+    { id: 'v2', tag: 'Horror', title: 'Patient 402', desc: "You're a patient at a psychic ward. The lights just went out, and the 'doctors' are screaming. Something is opening your cell.", img: 'world/horror_1.jpg' },
+    { id: 'v3', tag: 'Zombie', title: 'The Last Scavenger', desc: 'You and your small squad are cornered in a mall. Ammo is low, the sun is setting, and the horde just broke the glass.', img: 'world/zombie_1.jpg' },
+    { id: 'v4', tag: 'Sci-Fi', title: 'Neon Syndicate', desc: 'You woke up with a prototype neural chip in your head. Every corporate assassin in the city is pinging your location.', img: 'world/scifi_1.jpg' },
+    { id: 'v5', tag: 'Fantasy', title: 'Dragon’s Vessel', desc: 'You were born with an Ancient Fire nesting in your soul. Today is the day the Kingdom finds out what you can really do.', img: 'world/fantasy_1.jpg' },
+    { id: 'v6', tag: 'Harem', title: 'The Accidental Heir', desc: 'You just inherited a magical estate, and three powerful spirit guardians claim you are their long-lost master.', img: 'world/harem_1.jpg' },
+    { id: 'v7', tag: 'Survival', title: 'The Last Man', desc: 'Every human on Earth vanished at noon. You’re enjoying the silence until you hear a knock on your apartment door.', img: 'world/survival_1.jpg' },
+    { id: 'v8', tag: 'Dark', title: 'Shadow Merchant', desc: 'You trade memories for lifespan. A man just offered you 50 years to forget the face of the demon following him.', img: 'world/dark_1.jpg' },
+    { id: 'v9', tag: 'Academy', title: 'Elite S-Rank', desc: 'You’re the only student in the Hero Academy without a superpower. The combat exams start in ten minutes.', img: 'world/academy_1.jpg' },
+    { id: 'v10', tag: 'Thriller', title: 'The Mimic Game', desc: 'You’re in a cabin with five friends. You know one of them was replaced by an entity an hour ago. Which one?', img: 'world/thriller_1.jpg' },
+    { id: 'v11', tag: 'Middle Age', title: 'Black Plague Healer', desc: 'The Inquisition is at your door calling your medicine witchcraft. You have five minutes to escape into the woods.', img: 'world/medieval_1.jpg' },
+    { id: 'v12', tag: 'Cyber', title: 'Ghost Auditor', desc: 'You enter the digital afterlife to delete corrupted souls. Your next target is a soul that claims to be your sister.', img: 'world/cyber_1.jpg' },
+    { id: 'v13', tag: 'Isekai', title: 'Demon King Strategy', desc: 'Reincarnated as the Demon King’s advisor. The Hero’s party is at the gates, and your boss is an idiot.', img: 'world/isekai_2.jpg' },
+    { id: 'v14', tag: 'Space', title: 'Void Castaway', desc: 'Your colony ship exploded. You’re on the Martian surface with a cracked visor and a radio picking up heavy breathing.', img: 'world/space_1.jpg' },
+    { id: 'v15', tag: 'Romance', title: 'Contract Rival', desc: 'To save your family business, you have to fake-date the most arrogant CEO in Tokyo. He’s already making things difficult.', img: 'world/romance_1.jpg' }
+];
+
+        
+
         const characterCards = [
     { id: 'stella', title: 'The Cold Assassin', desc: 'A lethal shadow who never misses her mark, but hides a fragile heart.', cat: 'ASSASSIN', img: 'character/assassin.jpg' },
     { id: 'mrs_robinson', title: 'Mrs. Robinson', desc: 'Your best friend’s mother who always seems to find reasons to call you over.', cat: 'MILF', img: 'character/mrsrobinson.jpg' },
@@ -329,6 +350,39 @@
             `;
 
 
+html += `
+    <section class="py-8">
+        <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">World Scenarios</h2>
+        <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
+            ${worldScenarios.map(world => `
+                <div class="min-w-[220px] h-[300px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer active:scale-95 transition-all" onclick="selectWorld('${world.id}')">
+                    
+                    
+                    <img src="${world.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                    
+                    <!-- Clean Label (Top Left) -->
+                    <div class="absolute top-4 left-4 z-20">
+                        <span class="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[8px] font-black uppercase tracking-widest text-white shadow-xl">
+                            ${world.tag}
+                        </span>
+                    </div>
+
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/40 to-transparent"></div>
+                    
+                    
+                    <div class="absolute bottom-0 p-6 z-10 w-full">
+                        <h3 class="text-[12px] font-black uppercase tracking-[0.2em] text-white">${world.title}</h3>
+                        <div class="w-8 h-[2px] bg-purple-500 my-2 opacity-80 group-hover:w-16 transition-all duration-500"></div>
+                        <p class="text-[10px] text-zinc-300 leading-tight line-clamp-3">${world.desc}</p>
+                    </div>
+
+                </div>
+            `).join('')}
+        </div>
+    </section>
+`;
+            
 
             html += `
     <section class="py-2">
