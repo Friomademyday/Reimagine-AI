@@ -353,16 +353,16 @@
 
             html += `
                 <section class="py-3">
-                    <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Anime Universe: Popular</h2>
+                    <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Characters/Personas: Popular Situations</h2>
                     <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
-                        ${worldScenarios.map(world => `
-                            <div class="min-w-[200px] h-[270px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${world.id}')">
-                                <img src="${world.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
+                        ${characterCards.map(world => `
+                            <div class="min-w-[200px] h-[270px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${character.title}')">
+                                <img src="${character.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/50 to-transparent"></div>
                                 <div class="absolute bottom-0 p-6 z-10 w-full">
-    <h3 class="text-[11px] font-black uppercase tracking-[0.25em] text-white">${world.title}</h3>
+    <h3 class="text-[11px] font-black uppercase tracking-[0.25em] text-white">${character.title}</h3>
     <div class="w-19 h-[1.5px] bg-purple-500 my-2 opacity-80"></div>
-    <p class="text-[10px] text-gray-400 leading-tight line-clamp-3">${world.desc}</p>
+    <p class="text-[10px] text-gray-400 leading-tight line-clamp-3">${character.desc}</p>
 </div>
                             </div>
                         `).join('')}
