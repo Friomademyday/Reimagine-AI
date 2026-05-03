@@ -27,12 +27,13 @@
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .premium-border:hover {
+       
+.premium-border:hover {
     transform: scale(1.05); 
-    z-index: 100 !important;
+    z-index: 30 !important; 
     border-color: rgba(199, 115, 255, 0.8);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-        }
+}
 
         section {
     overflow: visible !important;
@@ -189,7 +190,7 @@
 
     if (open) {
         
-        sidebar.style.transform = 'translateX(0)';
+        sidebar.style.transform = 'translateX(0%)';
         overlay.classList.remove('hidden');
         setTimeout(() => overlay.style.opacity = '1', 10);
     } else {
