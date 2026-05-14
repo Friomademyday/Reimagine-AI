@@ -357,6 +357,8 @@ window.closeChat = function() {
                     <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Anime Universe: Popular</h2>
                     <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
                         ${animeVerses.map(anime => `
+                        
+onclick="openChat('${char.title}')"
                             <div class="min-w-[200px] h-[270px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${anime.title}')">
                                 <img src="${anime.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/50 to-transparent"></div>
@@ -378,6 +380,7 @@ window.closeChat = function() {
                     <h2 class="px-6 text-xs font-black uppercase tracking-[0.2em] mb-6 text-[#c773ff]">Characters/Personas: Popular</h2>
                     <div class="flex overflow-x-auto gap-6 px-6 pt-4 pb-4 no-scrollbar -my-2">
                         ${characterCards.map(char => `
+                        onclick="openChat('${char.title}')"
                             <div class="min-w-[200px] h-[270px] rounded-[32px] premium-border overflow-hidden relative group cursor-pointer" onclick="console.log('Clicked ${char.title}')">
                                 <img src="${char.img}" class="absolute inset-0 w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700">
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#000000] via-black/50 to-transparent"></div>
